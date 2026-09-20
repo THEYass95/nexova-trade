@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXOVA — Commerce International</title>
+    <meta name="description" content="NEXOVA - Votre partenaire de confiance pour l'import/export de produits algériens vers les marchés internationaux.">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0A1628;
+            --gold: #C9A84C;
+            --gold-light: #E8C87A;
+            --white: #FFFFFF;
+            --off-white: #F8F8F6;
+            --gray: #888888;
+            --text: #1A1A1A;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: 4px;
+            text-decoration: none;
+        }
+        .logo span { color: var(--gold); }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        .lang-switcher { display: flex; gap: 0.4rem; margin-left: 1rem; }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            color: rgba(255,255,255,0.6);
+            padding: 4px 10px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        .cta-header {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 22px;
+            border: none;
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .cta-header:hover { background: var(--gold-light); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, #122040 60%, #1a3a5c 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -150px;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px; right: 15%;
+            width: 450px; height: 450px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.05);
+        }
+
+        .hero-content { max-width: 720px; z-index: 1; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            gap: 12px;
+        }
+        .hero-tag::before {
+            content: '';
+            display: block;
+            width: 30px; height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
+            color: var(--white);
+            font-weight: 800;
+            line-height: 1.12;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 em { color: var(--gold); font-style: italic; }
+
+        .hero p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+            line-height: 1.85;
+        }
+
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 14px 32px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.35);
+            color: var(--white);
+            padding: 14px 32px;
+            font-size: 0.88rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            flex-wrap: wrap;
+        }
+        .stat h3 { font-size: 2.2rem; color: var(--gold); font-weight: 900; line-height: 1; }
+        .stat p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ========== SECTIONS COMMUNES ========== */
+        section { padding: 100px 5%; }
+
+        .section-num {
+            font-size: 0.75rem;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3.5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        h2 em { color: var(--gold); font-style: italic; }
+
+        /* ========== ABOUT ========== */
+        #about { background: var(--off-white); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+        .about-text .btn-primary { margin-top: 0.5rem; }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            transition: box-shadow 0.3s;
+        }
+        .value-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.07); }
+
+        .value-card h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .value-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+
+        /* ========== SERVICES ========== */
+        #services { background: var(--white); }
+
+        .services-header {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 3rem 2.5rem;
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--gold);
+            transition: width 0.4s;
+        }
+        .service-card:hover::before { width: 100%; }
+        .service-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-num {
+            position: absolute;
+            top: 1.5rem; right: 2rem;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.04);
+            line-height: 1;
+        }
+
+        .service-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.93rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+        .tag {
+            background: var(--off-white);
+            color: var(--navy);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            border-radius: 2px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* ========== WHY US ========== */
+        #why { background: var(--navy); color: var(--white); }
+        #why .section-num { color: rgba(255,255,255,0.3); }
+        #why h2 { color: var(--white); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .why-item { text-align: center; }
+        .why-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+
+        .why-item h3 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        .why-item p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; }
+
+        /* ========== NETWORK ========== */
+        #network { background: var(--off-white); }
+
+        .network-intro {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .network-intro > p {
+            color: #666;
+            max-width: 600px;
+            margin-top: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .zone-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-top: 3px solid var(--gold);
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        .zone-card:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.07); }
+        .zone-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+        .zone-card h3 {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+        .zone-card p { color: var(--gray); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ========== CTA ========== */
+        #cta {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            text-align: center;
+            padding: 120px 5%;
+        }
+        #cta h2 { color: var(--white); max-width: 700px; margin: 0 auto 1.5rem; }
+        #cta p {
+            color: rgba(255,255,255,0.55);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* ========== CONTACT ========== */
+        #contact { background: var(--white); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--navy);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.8rem;
+        }
+        .contact-icon { font-size: 1.3rem; min-width: 30px; padding-top: 2px; }
+
+        .contact-item p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+        .contact-item strong { display: block; color: var(--navy); font-weight: 700; margin-bottom: 3px; font-size: 0.85rem; letter-spacing: 0.5px; }
+
+        form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            background: var(--off-white);
+            font-size: 0.93rem;
+            font-family: inherit;
+            color: var(--text);
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        input:focus, textarea:focus { border-color: var(--gold); background: var(--white); }
+        textarea { height: 140px; resize: vertical; }
+
+        .btn-submit {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 40px;
+            border: none;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+            font-family: inherit;
+        }
+        .btn-submit:hover { background: var(--gold); color: var(--navy); }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #060E1A;
+            color: rgba(255,255,255,0.45);
+            padding: 70px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand .logo { display: block; margin-bottom: 1.2rem; font-size: 1.5rem; }
+
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 300px; }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.82rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .zones-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .cta-header { display: none; }
+
+            nav {
+                position: fixed;
+                top: 75px; left: 0; right: 0;
+                background: rgba(10, 22, 40, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-110%);
+                opacity: 0;
+                transition: transform 0.35s ease, opacity 0.35s ease;
+                border-top: 1px solid rgba(201,168,76,0.2);
+            }
+            nav.open { transform: translateY(0); opacity: 1; }
+
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-values { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .hero-stats { gap: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .why-grid, .zones-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+    <a href="#home" class="logo">NEX<span>OVA</span></a>
+
+    <nav id="mainNav">
+        <a href="#about"   data-fr="À Propos"  data-en="About">À Propos</a>
+        <a href="#services" data-fr="Services"  data-en="Services">Services</a>
+        <a href="#network"  data-fr="Réseau"    data-en="Network">Réseau</a>
+        <a href="#contact"  data-fr="Contact"   data-en="Contact">Contact</a>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+            <button class="lang-btn"        onclick="setLang('en')">EN</button>
+        </div>
+    </nav>
+
+    <a href="#contact" class="cta-header"
+       data-fr="Parlons de votre projet"
+       data-en="Let's talk about your project">Parlons de votre projet</a>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="hero-tag" data-fr="Commerce International" data-en="International Trade">Commerce International</span>
+        <h1 data-fr="Votre partenaire pour un commerce <em>sans frontières</em>"
+            data-en="Your partner for trade <em>without borders</em>">
+            Votre partenaire pour un commerce <em>sans frontières</em>
+        </h1>
+        <p data-fr="NEXOVA connecte l'Algérie au monde. Import, export et distribution de produits alimentaires, matériaux de construction et machines industrielles."
+           data-en="NEXOVA connects Algeria to the world. Import, export and distribution of food products, construction materials and industrial machinery.">
+            NEXOVA connecte l'Algérie au monde. Import, export et distribution de produits alimentaires, matériaux de construction et machines industrielles.
+        </p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn-primary" data-fr="Démarrer un projet" data-en="Start a project">Démarrer un projet</a>
+            <a href="#services" class="btn-outline" data-fr="Nos services" data-en="Our services">Nos services</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>+50</h3>
+                <p data-fr="Produits" data-en="Products">Produits</p>
+            </div>
+            <div class="stat">
+                <h3>4</h3>
+                <p data-fr="Zones géographiques" data-en="Geographic zones">Zones géographiques</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p data-fr="Qualité garantie" data-en="Guaranteed quality">Qualité garantie</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+    <div class="about-grid">
+        <div class="about-text">
+            <p class="section-num">01 — À Propos</p>
+            <h2 data-fr="Une entreprise <em>algérienne</em> au rayonnement international"
+                data-en="An <em>Algerian</em> company with international reach">
+                Une entreprise <em>algérienne</em> au rayonnement international
+            </h2>
+            <p data-fr="NEXOVA est née d'une vision claire : valoriser le savoir-faire et les produits algériens sur les marchés internationaux. Nous agissons comme pont entre les producteurs locaux et les acheteurs à travers le monde."
+               data-en="NEXOVA was born from a clear vision: to promote Algerian expertise and products on international markets. We act as a bridge between local producers and buyers around the world.">
+                NEXOVA est née d'une vision claire : valoriser le savoir-faire et les produits algériens sur les marchés internationaux. Nous agissons comme pont entre les producteurs locaux et les acheteurs à travers le monde.
+            </p>
+            <p data-fr="Notre expertise couvre trois domaines stratégiques — l'agroalimentaire, les matériaux de construction et les équipements industriels — pour offrir à nos partenaires une solution commerciale complète et fiable."
+               data-en="Our expertise covers three strategic areas — agri-food, construction materials and industrial equipment — to offer our partners a complete and reliable commercial solution.">
+                Notre expertise couvre trois domaines stratégiques — l'agroalimentaire, les matériaux de construction et les équipements industriels — pour offrir à nos partenaires une solution commerciale complète et fiable.
+            </p>
+            <a href="#contact" class="btn-primary"
+               data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
+        </div>
+        <div class="about-values">
+            <div class="value-card">
+                <h4 data-fr="Confiance" data-en="Trust">Confiance</h4>
+                <p data-fr="Des relations durables fondées sur la transparence et l'intégrité totale."
+                   data-en="Lasting relationships built on transparency and full integrity.">
+                    Des relations durables fondées sur la transparence et l'intégrité totale.
+                </p>
+            </div>
+            <div class="value-card">
+                <h4 data-fr="Qualité" data-en="Quality">Qualité</h4>
+                <p data-fr="Chaque produit est rigoureusement sélectionné selon des standards élevés."
+                   data-en="Every product is rigorously selected according to high standards.">
+                    Chaque produit est rigoureusement sélectionné selon des standards élevés.
+                </p>
+            </div>
+            <div class="value-card">
+                <h4 data-fr="Réactivité" data-en="Responsiveness">Réactivité</h4>
+                <p data-fr="Des réponses rapides et des solutions adaptées à chaque besoin spécifique."
+                   data-en="Quick responses and solutions tailored to each specific need.">
+                    Des réponses rapides et des solutions adaptées à chaque besoin spécifique.
+                </p>
+            </div>
+            <div class="value-card">
+                <h4 data-fr="Expertise" data-en="Expertise">Expertise</h4>
+                <p data-fr="Une connaissance approfondie des marchés locaux et internationaux."
+                   data-en="In-depth knowledge of local and international markets.">
+                    Une connaissance approfondie des marchés locaux et internationaux.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services">
+    <div class="services-header">
+        <p class="section-num">02 — Services</p>
+        <h2 data-fr="Ce que nous <em>proposons</em>" data-en="What we <em>offer</em>">Ce que nous <em>proposons</em></h2>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <span class="service-num">01</span>
+            <div class="service-icon">🌾</div>
+            <h3 data-fr="Produits Alimentaires" data-en="Food Products">Produits Alimentaires</h3>
+            <p data-fr="Exportation et importation de produits agroalimentaires algériens de qualité. Fruits secs, épices, huiles, légumineuses, dattes et bien plus encore."
+               data-en="Export and import of quality Algerian agri-food products. Dried fruits, spices, oils, legumes, dates and much more.">
+                Exportation et importation de produits agroalimentaires algériens de qualité. Fruits secs, épices, huiles, légumineuses, dattes et bien plus encore.
+            </p>
+            <div class="service-tags">
+                <span class="tag" data-fr="Épices" data-en="Spices">Épices</span>
+                <span class="tag" data-fr="Huiles" data-en="Oils">Huiles</span>
+                <span class="tag" data-fr="Légumineuses" data-en="Legumes">Légumineuses</span>
+                <span class="tag" data-fr="Dattes" data-en="Dates">Dattes</span>
+                <span class="tag" data-fr="Fruits secs" data-en="Dried fruits">Fruits secs</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <span class="service-num">02</span>
+            <div class="service-icon">🏗️</div>
+            <h3 data-fr="Matériaux BTP" data-en="Construction Materials">Matériaux BTP</h3>
+            <p data-fr="Fourniture de matériaux de construction et de travaux publics. Ciment, acier, céramique, marbre algérien et agrégats pour vos projets."
+               data-en="Supply of construction and public works materials. Cement, steel, ceramics, Algerian marble and aggregates for your projects.">
+                Fourniture de matériaux de construction et de travaux publics. Ciment, acier, céramique, marbre algérien et agrégats pour vos projets.
+            </p>
+            <div class="service-tags">
+                <span class="tag" data-fr="Ciment" data-en="Cement">Ciment</span>
+                <span class="tag" data-fr="Acier" data-en="Steel">Acier</span>
+                <span class="tag" data-fr="Marbre" data-en="Marble">Marbre</span>
+                <span class="tag" data-fr="Céramique" data-en="Ceramics">Céramique</span>
+                <span class="tag" data-fr="Agrégats" data-en="Aggregates">Agrégats</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <span class="service-num">03</span>
+            <div class="service-icon">⚙️</div>
+            <h3 data-fr="Machines Industrielles" data-en="Industrial Machinery">Machines Industrielles</h3>
+            <p data-fr="Import et export d'équipements industriels et agricoles. Machines de production, équipements agricoles, pièces détachées et outillage professionnel."
+               data-en="Import and export of industrial and agricultural equipment. Production machinery, agricultural equipment, spare parts and professional tools.">
+                Import et export d'équipements industriels et agricoles. Machines de production, équipements agricoles, pièces détachées et outillage professionnel.
+            </p>
+            <div class="service-tags">
+                <span class="tag" data-fr="Équipements" data-en="Equipment">Équipements</span>
+                <span class="tag" data-fr="Agricole" data-en="Agricultural">Agricole</span>
+                <span class="tag" data-fr="Pièces détachées" data-en="Spare parts">Pièces détachées</span>
+                <span class="tag" data-fr="Outillage" data-en="Tools">Outillage</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY US ==================== -->
+<section id="why">
+    <p class="section-num">03 — Pourquoi nous</p>
+    <h2 data-fr="Pourquoi choisir <em>NEXOVA</em>" data-en="Why choose <em>NEXOVA</em>">
+        Pourquoi choisir <em>NEXOVA</em>
+    </h2>
+    <div class="why-grid">
+        <div class="why-item">
+            <div class="why-icon">🤝</div>
+            <h3 data-fr="Partenariat" data-en="Partnership">Partenariat</h3>
+            <p data-fr="Nous construisons des relations durables fondées sur la confiance mutuelle et les intérêts partagés sur le long terme."
+               data-en="We build lasting relationships based on mutual trust and long-term shared interests.">
+                Nous construisons des relations durables fondées sur la confiance mutuelle et les intérêts partagés sur le long terme.
+            </p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">🎯</div>
+            <h3 data-fr="Précision" data-en="Precision">Précision</h3>
+            <p data-fr="Chaque commande est traitée avec rigueur pour garantir la livraison dans les délais et une conformité totale."
+               data-en="Every order is handled with rigor to ensure on-time delivery and full compliance.">
+                Chaque commande est traitée avec rigueur pour garantir la livraison dans les délais et une conformité totale.
+            </p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">🌍</div>
+            <h3 data-fr="Réseau Global" data-en="Global Network">Réseau Global</h3>
+            <p data-fr="Un réseau de partenaires solides en Europe, Afrique et Moyen-Orient pour des opérations commerciales fluides."
+               data-en="A strong network of partners in Europe, Africa and the Middle East for smooth business operations.">
+                Un réseau de partenaires solides en Europe, Afrique et Moyen-Orient pour des opérations commerciales fluides.
+            </p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <h3 data-fr="Performance" data-en="Performance">Performance</h3>
+            <p data-fr="Des indicateurs clairs, une communication transparente et des résultats mesurables pour chaque mission confiée."
+               data-en="Clear indicators, transparent communication and measurable results for every mission entrusted to us.">
+                Des indicateurs clairs, une communication transparente et des résultats mesurables pour chaque mission confiée.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== NETWORK ==================== -->
+<section id="network">
+    <div class="network-intro">
+        <p class="section-num">04 — Réseau</p>
+        <h2 data-fr="Notre <em>réseau</em> international" data-en="Our international <em>network</em>">
+            Notre <em>réseau</em> international
+        </h2>
+        <p data-fr="NEXOVA opère sur quatre grandes zones géographiques, connectant l'Algérie aux marchés porteurs à travers le monde."
+           data-en="NEXOVA operates across four major geographical zones, connecting Algeria to key markets around the world.">
+            NEXOVA opère sur quatre grandes zones géographiques, connectant l'Algérie aux marchés porteurs à travers le monde.
+        </p>
+    </div>
+    <div class="zones-grid">
+        <div class="zone-card">
+            <div class="zone-icon">🇩🇿</div>
+            <h3 data-fr="Algérie" data-en="Algeria">Algérie</h3>
+            <p data-fr="Base opérationnelle principale et source d'approvisionnement privilégiée pour nos produits."
+               data-en="Main operational base and preferred supply source for our products.">
+                Base opérationnelle principale et source d'approvisionnement privilégiée pour nos produits.
+            </p>
+        </div>
+        <div class="zone-card">
+            <div class="zone-icon">🏛️</div>
+            <h3 data-fr="Europe" data-en="Europe">Europe</h3>
+            <p data-fr="Partenaires commerciaux en France, Espagne, Italie et autres pays européens."
+               data-en="Business partners in France, Spain, Italy and other European countries.">
+                Partenaires commerciaux en France, Espagne, Italie et autres pays européens.
+            </p>
+        </div>
+        <div class="zone-card">
+            <div class="zone-icon">🕌</div>
+            <h3 data-fr="Moyen-Orient" data-en="Middle East">Moyen-Orient</h3>
+            <p data-fr="Présence aux Émirats Arabes Unis, en Arabie Saoudite et dans les pays du Golfe."
+               data-en="Presence in the UAE, Saudi Arabia and Gulf countries.">
+                Présence aux Émirats Arabes Unis, en Arabie Saoudite et dans les pays du Golfe.
+            </p>
+        </div>
+        <div class="zone-card">
+            <div class="zone-icon">🌍</div>
+            <h3 data-fr="Afrique" data-en="Africa">Afrique</h3>
+            <p data-fr="Développement de partenariats avec les marchés d'Afrique subsaharienne et du Maghreb."
+               data-en="Developing partnerships with sub-Saharan Africa and Maghreb markets.">
+                Développement de partenariats avec les marchés d'Afrique subsaharienne et du Maghreb.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section id="cta">
+    <span class="section-tag" data-fr="Travaillons ensemble" data-en="Let's work together">Travaillons ensemble</span>
+    <h2 data-fr="Prêt à développer votre activité <em>à l'international</em> ?"
+        data-en="Ready to grow your business <em>internationally</em> ?">
+        Prêt à développer votre activité <em>à l'international</em> ?
+    </h2>
+    <p data-fr="Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment NEXOVA peut vous accompagner."
+       data-en="Contact us today to discuss your project and find out how NEXOVA can support you.">
+        Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment NEXOVA peut vous accompagner.
+    </p>
+    <a href="#contact" class="btn-primary" data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <p class="section-num">05 — Contact</p>
+            <h2 data-fr="Parlons de votre <em>projet</em>" data-en="Let's talk about your <em>project</em>">
+                Parlons de votre <em>projet</em>
+            </h2>
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <p>
+                    <strong>Email</strong>
+                    contact@nexova-trade.fr
+                </p>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <p>
+                    <strong>WhatsApp / Téléphone</strong>
+                    +33 X XX XX XX XX
+                </p>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <p>
+                    <strong data-fr="Adresse" data-en="Address">Adresse</strong>
+                    France — Algérie
+                </p>
+            </div>
+        </div>
+        <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <input type="text"  placeholder="Nom / Name"  required>
+                <input type="email" placeholder="Email"        required>
+            </div>
+            <input type="text" id="subjectInput" placeholder="Sujet / Subject">
+            <textarea id="messageInput" placeholder="Votre message / Your message" required></textarea>
+            <button type="submit" class="btn-submit"
+                    data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
+        </form>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="#home" class="logo">NEX<span>OVA</span></a>
+            <p data-fr="Votre partenaire de confiance pour l'import/export de produits algériens de qualité vers les marchés internationaux."
+               data-en="Your trusted partner for the import/export of quality Algerian products to international markets.">
+                Votre partenaire de confiance pour l'import/export de produits algériens de qualité vers les marchés internationaux.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+            <a href="#about"    data-fr="À Propos"  data-en="About">À Propos</a>
+            <a href="#services" data-fr="Services"  data-en="Services">Services</a>
+            <a href="#network"  data-fr="Réseau"    data-en="Network">Réseau</a>
+            <a href="#contact"  data-fr="Contact"   data-en="Contact">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4 data-fr="Services" data-en="Services">Services</h4>
+            <a href="#services" data-fr="Produits Alimentaires"  data-en="Food Products">Produits Alimentaires</a>
+            <a href="#services" data-fr="Matériaux BTP"          data-en="Construction Materials">Matériaux BTP</a>
+            <a href="#services" data-fr="Machines Industrielles" data-en="Industrial Machinery">Machines Industrielles</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 NEXOVA — <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        <p>nexova-trade.fr</p>
+    </div>
+</footer>
+
+<script>
+    /* ---- LANGUE ---- */
+    let currentLang = 'fr';
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+        document.querySelectorAll('[data-fr]').forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (!text) return;
+            if (text.includes('<em>')) el.innerHTML = text;
+            else el.textContent = text;
+        });
+
+        document.documentElement.lang = lang;
+    }
+
+    /* ---- HEADER SCROLL ---- */
+    window.addEventListener('scroll', () => {
+        document.querySelector('header').style.boxShadow =
+            window.scrollY > 50 ? '0 2px 30px rgba(0,0,0,0.3)' : 'none';
+    });
+
+    /* ---- MENU MOBILE ---- */
+    function toggleMenu() {
+        document.getElementById('mainNav').classList.toggle('open');
+    }
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => document.getElementById('mainNav').classList.remove('open'));
+    });
+
+    /* ---- FORMULAIRE ---- */
+    function handleSubmit(e) {
+        e.preventDefault();
+        const msg = currentLang === 'fr'
+            ? 'Message envoyé ! Nous vous répondrons très prochainement.'
+            : 'Message sent! We will get back to you very soon.';
+        alert(msg);
+        e.target.reset();
+    }
+
+    /* ---- ANIMATIONS AU SCROLL ---- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .value-card, .why-item, .zone-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
