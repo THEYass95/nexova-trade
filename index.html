@@ -408,6 +408,27 @@
             margin: 0 auto;
         }
 
+        /* ========== WORLD MAP ========== */
+        .map-section {
+            background: var(--navy);
+            padding: 100px 5% 0;
+        }
+        .map-section .section-num { color: rgba(255,255,255,0.3); }
+        .map-section h2 { color: var(--white); }
+        .map-section > p {
+            color: rgba(255,255,255,0.5);
+            max-width: 500px;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .world-svg {
+            width: 100%;
+            max-width: 1100px;
+            display: block;
+            margin: 3rem auto 0;
+        }
+
         /* ========== ABOUT IMAGE ========== */
         .about-image {
             width: 100%;
@@ -884,6 +905,111 @@
             </p>
         </div>
     </div>
+</section>
+
+<!-- ==================== WORLD MAP ==================== -->
+<section class="map-section">
+    <p class="section-num">04 — Réseau mondial</p>
+    <h2 data-fr="De l'Algérie au <em>monde entier</em>" data-en="From Algeria to the <em>whole world</em>">De l'Algérie au <em>monde entier</em></h2>
+    <p data-fr="NEXOVA connecte les producteurs algériens aux marchés internationaux sur 4 continents." data-en="NEXOVA connects Algerian producers to international markets across 4 continents.">
+        NEXOVA connecte les producteurs algériens aux marchés internationaux sur 4 continents.
+    </p>
+
+    <svg class="world-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Ocean -->
+        <rect width="1000" height="500" fill="#071320"/>
+
+        <!-- Grid -->
+        <g stroke="#0d1e30" stroke-width="0.8">
+            <line x1="0" y1="125" x2="1000" y2="125"/>
+            <line x1="0" y1="250" x2="1000" y2="250"/>
+            <line x1="0" y1="375" x2="1000" y2="375"/>
+            <line x1="250" y1="0" x2="250" y2="500"/>
+            <line x1="500" y1="0" x2="500" y2="500"/>
+            <line x1="750" y1="0" x2="750" y2="500"/>
+        </g>
+
+        <!-- Continents -->
+        <!-- North America -->
+        <path d="M 90,55 L 160,45 L 220,60 L 265,90 L 278,135 L 262,195 L 232,248 L 192,278 L 150,268 L 108,218 L 85,155 L 82,105 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- South America -->
+        <path d="M 188,292 L 238,278 L 278,296 L 308,348 L 300,408 L 272,462 L 235,480 L 198,452 L 175,385 L 180,325 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- Europe -->
+        <path d="M 432,72 L 478,62 L 515,66 L 542,78 L 555,102 L 546,130 L 518,150 L 488,158 L 458,150 L 438,128 L 430,102 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- Africa -->
+        <path d="M 422,188 L 480,176 L 548,184 L 574,218 L 572,282 L 556,358 L 520,432 L 480,450 L 440,424 L 418,360 L 410,282 L 412,228 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- Algeria highlight -->
+        <path d="M 422,188 L 480,176 L 512,182 L 512,222 L 490,242 L 452,244 L 422,232 Z" fill="#1a3050" stroke="#253d62" stroke-width="0.8"/>
+        <!-- Middle East -->
+        <path d="M 548,170 L 612,160 L 660,170 L 670,208 L 650,242 L 606,254 L 568,244 L 550,218 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- Asia -->
+        <path d="M 622,68 L 758,55 L 882,72 L 968,118 L 990,188 L 970,250 L 895,288 L 808,294 L 728,268 L 670,230 L 642,180 L 628,128 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+        <!-- Australia -->
+        <path d="M 855,358 L 942,344 L 1005,375 L 1008,428 L 960,454 L 890,444 L 852,408 Z" fill="#132030" stroke="#1c3045" stroke-width="1"/>
+
+        <!-- Animated connection lines -->
+        <path id="ln-eu" d="M 466,214 Q 470,165 490,142" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-dasharray="6,4" opacity="0.75"/>
+        <path id="ln-me" d="M 466,214 Q 528,208 588,218" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-dasharray="6,4" opacity="0.75"/>
+        <path id="ln-af" d="M 466,214 Q 468,278 468,325" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-dasharray="6,4" opacity="0.75"/>
+        <path id="ln-am" d="M 466,214 Q 348,195 228,205" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-dasharray="6,4" opacity="0.75"/>
+
+        <!-- Traveling dots -->
+        <circle r="3.5" fill="#E8C87A">
+            <animateMotion dur="3s" repeatCount="indefinite"><mpath href="#ln-eu"/></animateMotion>
+        </circle>
+        <circle r="3.5" fill="#E8C87A">
+            <animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#ln-me"/></animateMotion>
+        </circle>
+        <circle r="3.5" fill="#E8C87A">
+            <animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#ln-af"/></animateMotion>
+        </circle>
+        <circle r="3.5" fill="#E8C87A">
+            <animateMotion dur="4.2s" repeatCount="indefinite"><mpath href="#ln-am"/></animateMotion>
+        </circle>
+
+        <!-- Destination: Europe -->
+        <circle cx="490" cy="142" r="18" fill="#C9A84C" opacity="0.12">
+            <animate attributeName="r" values="10;20;10" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.12;0;0.12" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="490" cy="142" r="5" fill="#C9A84C"/>
+        <text x="500" y="134" fill="#C9A84C" font-size="12" font-family="Outfit,sans-serif" font-weight="600">Europe</text>
+
+        <!-- Destination: Moyen-Orient -->
+        <circle cx="588" cy="218" r="18" fill="#C9A84C" opacity="0.12">
+            <animate attributeName="r" values="10;20;10" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.12;0;0.12" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="588" cy="218" r="5" fill="#C9A84C"/>
+        <text x="598" y="212" fill="#C9A84C" font-size="12" font-family="Outfit,sans-serif" font-weight="600" data-fr="Moyen-Orient" data-en="Middle East">Moyen-Orient</text>
+
+        <!-- Destination: Afrique -->
+        <circle cx="468" cy="325" r="18" fill="#C9A84C" opacity="0.12">
+            <animate attributeName="r" values="10;20;10" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.12;0;0.12" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="468" cy="325" r="5" fill="#C9A84C"/>
+        <text x="478" y="320" fill="#C9A84C" font-size="12" font-family="Outfit,sans-serif" font-weight="600" data-fr="Afrique" data-en="Africa">Afrique</text>
+
+        <!-- Destination: Amériques -->
+        <circle cx="228" cy="205" r="18" fill="#C9A84C" opacity="0.12">
+            <animate attributeName="r" values="10;20;10" dur="3.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.12;0;0.12" dur="3.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="228" cy="205" r="5" fill="#C9A84C"/>
+        <text x="238" y="200" fill="#C9A84C" font-size="12" font-family="Outfit,sans-serif" font-weight="600" data-fr="Amériques" data-en="Americas">Amériques</text>
+
+        <!-- Source: Algérie (pulsing gold) -->
+        <circle cx="466" cy="214" r="28" fill="#C9A84C" opacity="0.1">
+            <animate attributeName="r" values="16;32;16" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.1;0;0.1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="466" cy="214" r="10" fill="#C9A84C"/>
+        <circle cx="466" cy="214" r="5" fill="white"/>
+        <text x="480" y="206" fill="white" font-size="13" font-weight="700" font-family="Outfit,sans-serif" data-fr="Algérie" data-en="Algeria">Algérie</text>
+
+    </svg>
 </section>
 
 <!-- ==================== NETWORK ==================== -->
