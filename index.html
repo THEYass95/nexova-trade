@@ -22,7 +22,7 @@
             --text: #1A1A1A;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 75px; }
 
         body {
             font-family: 'Outfit', system-ui, -apple-system, sans-serif;
@@ -661,16 +661,25 @@
             nav {
                 position: fixed;
                 top: 75px; left: 0; right: 0;
-                background: rgba(10, 22, 40, 0.98);
+                background: rgb(10, 22, 40);
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.5rem;
-                transform: translateY(-110%);
+                transform: translateY(calc(-100% - 75px));
                 opacity: 0;
-                transition: transform 0.35s ease, opacity 0.35s ease;
+                visibility: hidden;
+                pointer-events: none;
+                transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
                 border-top: 1px solid rgba(201,168,76,0.2);
             }
-            nav.open { transform: translateY(0); opacity: 1; }
+            nav.open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+
+            /* Bouton menu : zone tactile plus grande, toujours au-dessus */
+            .hamburger { padding: 14px 10px; margin-right: -10px; position: relative; z-index: 2; }
+
+            /* Défilement plus fluide sur téléphone */
+            header { backdrop-filter: none; }
+            .visual-break { background-attachment: scroll; height: 360px; }
 
             .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
             .services-grid { grid-template-columns: 1fr; }
@@ -1083,10 +1092,14 @@
     }
 
     /* ---- HEADER SCROLL ---- */
+    const header = document.querySelector('header');
+    let headerShadow = false;
     window.addEventListener('scroll', () => {
-        document.querySelector('header').style.boxShadow =
-            window.scrollY > 50 ? '0 2px 30px rgba(0,0,0,0.3)' : 'none';
-    });
+        const shadow = window.scrollY > 50;
+        if (shadow === headerShadow) return;
+        headerShadow = shadow;
+        header.style.boxShadow = shadow ? '0 2px 30px rgba(0,0,0,0.3)' : 'none';
+    }, { passive: true });
 
     /* ---- MENU MOBILE ---- */
     function toggleMenu() {
