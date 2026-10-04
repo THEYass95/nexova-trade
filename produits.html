@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre gamme — NEXOVA</title>
+    <meta name="description" content="La gamme NEXOVA : produits alimentaires, matériaux BTP et machines industrielles.">
+    <link rel="canonical" href="https://nexova-trade.fr/produits.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0A1628;
+            --gold: #C9A84C;
+            --gold-light: #E8C87A;
+            --white: #FFFFFF;
+            --off-white: #F8F8F6;
+            --gray: #888888;
+            --text: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            letter-spacing: -0.5px;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 0 5%;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: normal;
+            text-decoration: none;
+        }
+        .logo span { color: var(--gold); }
+        .logo img { height: 46px; width: auto; display: block; }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        .lang-switcher { display: flex; gap: 0.4rem; margin-left: 1rem; }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            color: rgba(255,255,255,0.6);
+            padding: 4px 10px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold);
+            font-weight: 700;
+        }
+
+        .cta-header {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 22px;
+            border: none;
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .cta-header:hover { background: var(--gold-light); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        /* ========== PAGE PRODUITS ========== */
+        section { padding: 150px 5% 100px; }
+
+        .section-header { max-width: 1200px; margin: 0 auto 3rem; }
+
+        .breadcrumb {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .breadcrumb a { color: var(--gold); text-decoration: none; }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+        h1 em { color: var(--gold); font-style: italic; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--gold);
+            transition: width 0.4s;
+            z-index: 1;
+        }
+        .product-card:hover::before { width: 100%; }
+        .product-card:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-card figcaption {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            padding: 1.2rem 1.5rem 1.4rem;
+        }
+
+        .carousel-dots { display: none; }
+
+        /* ========== ONGLETS ========== */
+        .tabs {
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            gap: 0.6rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab {
+            white-space: nowrap;
+            padding: 12px 22px;
+            border: 1px solid #ddd;
+            background: var(--white);
+            color: var(--navy);
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab:hover { border-color: var(--gold); }
+        .tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+        .group { max-width: 1200px; margin: 0 auto 4rem; }
+        .group:last-child { margin-bottom: 0; }
+        .group-title {
+            font-family: 'Outfit', system-ui, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .group-title::after { content: ''; flex: 1; height: 1px; background: #e8e8e8; }
+        .products-grid.cols-4 { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .cols-4 .product-card figcaption { font-size: 1.3rem; padding: 1rem 1.2rem 1.1rem; }
+
+        .family { display: none; }
+        .family.active { display: block; }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #060E1A;
+            color: rgba(255,255,255,0.45);
+            padding: 70px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand .logo { margin-bottom: 1.2rem; font-size: 1.5rem; }
+
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 300px; }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.82rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .products-grid, .products-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .cta-header { display: none; }
+
+            nav {
+                position: fixed;
+                top: 75px; left: 0; right: 0;
+                background: rgb(10, 22, 40);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(calc(-100% - 75px));
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s;
+                border-top: 1px solid rgba(201,168,76,0.2);
+            }
+            nav.open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+
+            /* Bouton menu : zone tactile plus grande, toujours au-dessus */
+            .hamburger { padding: 14px 10px; margin-right: -10px; position: relative; z-index: 2; }
+
+            /* Défilement plus fluide sur téléphone */
+            header { backdrop-filter: none; }
+
+            section { padding: 110px 5% 64px; }
+            .section-header { margin-bottom: 2rem; }
+            .tabs { margin: 0 -5.5% 1.5rem; padding: 0 5.5%; }
+            .tab { padding: 10px 16px; font-size: 0.72rem; }
+            /* Carrousel : on fait glisser les photos avec le doigt */
+            .products-grid {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                margin: 0 -5.5%;
+                padding: 0 5.5% 4px;
+                scroll-padding: 0 5.5%;
+            }
+            .products-grid::-webkit-scrollbar { display: none; }
+            .product-card { flex: 0 0 82%; scroll-snap-align: start; }
+            .group { margin-bottom: 2.5rem; }
+            .product-card:hover { transform: none; box-shadow: none; }
+
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 1.5rem;
+            }
+            .carousel-dots span {
+                width: 8px; height: 8px;
+                border-radius: 50%;
+                background: #d8d8d8;
+                transition: all 0.3s;
+            }
+            .carousel-dots span.active { background: var(--gold); width: 22px; border-radius: 4px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header>
+    <a href="index.html" class="logo"><img src="logo.svg" alt="NEXOVA">NEX<span>OVA</span></a>
+
+    <nav id="mainNav">
+        <a href="index.html#about"    data-fr="À Propos"  data-en="About">À Propos</a>
+        <a href="index.html#services" data-fr="Services"  data-en="Services">Services</a>
+        <a href="index.html#network"  data-fr="Réseau"    data-en="Network">Réseau</a>
+        <a href="index.html#contact"  data-fr="Contact"   data-en="Contact">Contact</a>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+            <button class="lang-btn"        onclick="setLang('en')">EN</button>
+        </div>
+    </nav>
+
+    <a href="index.html#contact" class="cta-header"
+       data-fr="Parlons de votre projet"
+       data-en="Let's talk about your project">Parlons de votre projet</a>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<!-- ==================== PRODUITS ==================== -->
+<section id="produits">
+    <div class="section-header">
+        <p class="breadcrumb">
+            <a href="index.html" data-fr="← Accueil" data-en="← Home">← Accueil</a>
+        </p>
+        <h1 data-fr="Notre <em>gamme</em>" data-en="Our <em>range</em>">Notre <em>gamme</em></h1>
+    </div>
+
+    <div class="tabs">
+        <button class="tab" data-tab="alimentaire" data-fr="Produits alimentaires"  data-en="Food products">Produits alimentaires</button>
+        <button class="tab" data-tab="btp"         data-fr="Matériaux BTP"          data-en="Construction materials">Matériaux BTP</button>
+        <button class="tab" data-tab="machines"    data-fr="Machines industrielles" data-en="Industrial machinery">Machines industrielles</button>
+    </div>
+
+    <!-- Produits alimentaires -->
+    <div class="family" data-family="alimentaire">
+    <div class="group">
+    <h2 class="group-title" data-fr="Fruits & légumes frais" data-en="Fresh fruit & vegetables">Fruits & légumes frais</h2>
+    <div class="products-grid">
+        <figure class="product-card">
+            <img src="images/produits/pommes-de-terre.jpg" width="800" height="600" alt="Pommes de terre" loading="lazy">
+            <figcaption data-fr="Pommes de terre" data-en="Potatoes">Pommes de terre</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/tomates.jpg" width="800" height="600" alt="Tomates" loading="lazy">
+            <figcaption data-fr="Tomates" data-en="Tomatoes">Tomates</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/poivrons.jpg" width="800" height="600" alt="Poivrons" loading="lazy">
+            <figcaption data-fr="Poivrons" data-en="Peppers">Poivrons</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/raisins.jpg" width="800" height="600" alt="Raisins" loading="lazy">
+            <figcaption data-fr="Raisins" data-en="Grapes">Raisins</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/pasteques.jpg" width="800" height="600" alt="Pastèques" loading="lazy">
+            <figcaption data-fr="Pastèques" data-en="Watermelons">Pastèques</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/oranges.jpg" width="800" height="600" alt="Oranges" loading="lazy">
+            <figcaption data-fr="Oranges" data-en="Oranges">Oranges</figcaption>
+        </figure>
+    </div>
+    <div class="carousel-dots"></div>
+    </div>
+
+    <div class="group">
+    <h2 class="group-title" data-fr="Fruits secs" data-en="Dried fruits">Fruits secs</h2>
+    <div class="products-grid cols-4">
+        <figure class="product-card">
+            <img src="images/produits/abricots-secs.jpg" width="800" height="600" alt="Abricots secs" loading="lazy">
+            <figcaption data-fr="Abricots secs" data-en="Dried apricots">Abricots secs</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/figues-sechees.jpg" width="800" height="600" alt="Figues séchées" loading="lazy">
+            <figcaption data-fr="Figues séchées" data-en="Dried figs">Figues séchées</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/pruneaux.jpg" width="800" height="600" alt="Pruneaux" loading="lazy">
+            <figcaption data-fr="Pruneaux" data-en="Prunes">Pruneaux</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/raisins-secs.jpg" width="800" height="600" alt="Raisins secs" loading="lazy">
+            <figcaption data-fr="Raisins secs" data-en="Raisins">Raisins secs</figcaption>
+        </figure>
+    </div>
+    <div class="carousel-dots"></div>
+    </div>
+
+    <div class="group">
+    <h2 class="group-title" data-fr="Olives & huile d'olive" data-en="Olives & olive oil">Olives & huile d'olive</h2>
+    <div class="products-grid cols-4">
+        <figure class="product-card">
+            <img src="images/produits/olives.jpg" width="800" height="600" alt="Olives" loading="lazy">
+            <figcaption data-fr="Olives" data-en="Olives">Olives</figcaption>
+        </figure>
+        <figure class="product-card">
+            <img src="images/produits/huile-olive.jpg" width="800" height="600" alt="Huile d'olive" loading="lazy">
+            <figcaption data-fr="Huile d'olive" data-en="Olive oil">Huile d'olive</figcaption>
+        </figure>
+    </div>
+    <div class="carousel-dots"></div>
+    </div>
+    </div>
+
+    <!-- Matériaux BTP : ajouter les photos ici (même modèle que ci-dessus) -->
+    <div class="family" data-family="btp">
+    <div class="products-grid">
+    </div>
+    <div class="carousel-dots"></div>
+    </div>
+
+    <!-- Machines industrielles : ajouter les photos ici (même modèle que ci-dessus) -->
+    <div class="family" data-family="machines">
+    <div class="products-grid">
+    </div>
+    <div class="carousel-dots"></div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="logo"><img src="logo.svg" alt="NEXOVA">NEX<span>OVA</span></a>
+            <p data-fr="Votre partenaire de confiance pour l'import/export de produits algériens de qualité vers les marchés internationaux."
+               data-en="Your trusted partner for the import/export of quality Algerian products to international markets.">
+                Votre partenaire de confiance pour l'import/export de produits algériens de qualité vers les marchés internationaux.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+            <a href="index.html#about"    data-fr="À Propos"  data-en="About">À Propos</a>
+            <a href="index.html#services" data-fr="Services"  data-en="Services">Services</a>
+            <a href="index.html#network"  data-fr="Réseau"    data-en="Network">Réseau</a>
+            <a href="index.html#contact"  data-fr="Contact"   data-en="Contact">Contact</a>
+        </div>
+        <div class="footer-col">
+            <h4 data-fr="Services" data-en="Services">Services</h4>
+            <a href="index.html#services" data-fr="Produits Alimentaires"  data-en="Food Products">Produits Alimentaires</a>
+            <a href="index.html#services" data-fr="Matériaux BTP"          data-en="Construction Materials">Matériaux BTP</a>
+            <a href="index.html#services" data-fr="Machines Industrielles" data-en="Industrial Machinery">Machines Industrielles</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 NEXOVA — <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        <p>nexova-trade.fr</p>
+    </div>
+</footer>
+
+<script>
+    /* ---- LANGUE ---- */
+    let currentLang = 'fr';
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+        document.querySelectorAll('[data-fr]').forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (!text) return;
+            if (text.includes('<em>')) el.innerHTML = text;
+            else el.textContent = text;
+        });
+
+        document.documentElement.lang = lang;
+    }
+
+    /* ---- HEADER SCROLL ---- */
+    const header = document.querySelector('header');
+    let headerShadow = false;
+    window.addEventListener('scroll', () => {
+        const shadow = window.scrollY > 50;
+        if (shadow === headerShadow) return;
+        headerShadow = shadow;
+        header.style.boxShadow = shadow ? '0 2px 30px rgba(0,0,0,0.3)' : 'none';
+    }, { passive: true });
+
+    /* ---- MENU MOBILE ---- */
+    function toggleMenu() {
+        document.getElementById('mainNav').classList.toggle('open');
+    }
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => document.getElementById('mainNav').classList.remove('open'));
+    });
+
+    /* ---- ANIMATIONS AU SCROLL ---- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    /* ---- CARROUSEL TÉLÉPHONE : points de position (un par rangée) ---- */
+    document.querySelectorAll('.products-grid').forEach(grid => {
+        const cards = grid.querySelectorAll('.product-card');
+        const dots = grid.nextElementSibling;
+        if (cards.length < 2) return;
+        cards.forEach(() => dots.appendChild(document.createElement('span')));
+        function updateDots() {
+            const step = cards[1].offsetLeft - cards[0].offsetLeft;
+            const index = step ? Math.min(cards.length - 1, Math.round(grid.scrollLeft / step)) : 0;
+            dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === index));
+        }
+        grid.addEventListener('scroll', updateDots, { passive: true });
+        grid.updateDots = updateDots;
+        updateDots();
+    });
+
+    /* ---- ONGLETS : la page s'ouvre sur la famille indiquée après # (ex. produits.html#btp) ---- */
+    function showFamily(name) {
+        if (!document.querySelector(`.family[data-family="${name}"]`)) name = 'alimentaire';
+        document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+        document.querySelectorAll('.family').forEach(f => {
+            f.classList.toggle('active', f.dataset.family === name);
+            if (f.dataset.family === name) f.querySelectorAll('.products-grid').forEach(g => g.updateDots && g.updateDots());
+        });
+    }
+    document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+        history.replaceState(null, '', '#' + tab.dataset.tab);
+        showFamily(tab.dataset.tab);
+    }));
+    window.addEventListener('hashchange', () => showFamily(location.hash.slice(1)));
+    showFamily(location.hash.slice(1));
+
+    const isPhone = window.matchMedia('(max-width: 768px)').matches;
+    if (!isPhone) document.querySelectorAll('.product-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
