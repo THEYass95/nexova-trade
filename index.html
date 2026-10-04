@@ -376,6 +376,10 @@
 
         .services-more { text-align: center; margin-top: 3rem; }
 
+        /* Carte entière cliquable (photo comprise) -> page de la gamme */
+        .service-card { cursor: pointer; }
+        .card-link { position: absolute; inset: 0; z-index: 2; }
+
         .tag {
             background: var(--off-white);
             color: var(--navy);
@@ -844,6 +848,7 @@
                 <span class="tag" data-fr="Dattes" data-en="Dates">Dattes</span>
                 <span class="tag" data-fr="Fruits secs" data-en="Dried fruits">Fruits secs</span>
             </div>
+            <a href="produits.html#alimentaire" class="card-link" aria-label="Produits alimentaires"></a>
         </div>
         <div class="service-card">
             <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')"></div>
@@ -861,6 +866,7 @@
                 <span class="tag" data-fr="Céramique" data-en="Ceramics">Céramique</span>
                 <span class="tag" data-fr="Agrégats" data-en="Aggregates">Agrégats</span>
             </div>
+            <a href="produits.html#btp" class="card-link" aria-label="Matériaux BTP"></a>
         </div>
         <div class="service-card">
             <div class="service-img" style="background-image:url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80')"></div>
@@ -877,6 +883,7 @@
                 <span class="tag" data-fr="Pièces détachées" data-en="Spare parts">Pièces détachées</span>
                 <span class="tag" data-fr="Outillage" data-en="Tools">Outillage</span>
             </div>
+            <a href="produits.html#machines" class="card-link" aria-label="Machines industrielles"></a>
         </div>
     </div>
     <div class="services-more">
