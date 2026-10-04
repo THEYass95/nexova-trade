@@ -247,6 +247,21 @@
         .products-grid.cols-4 { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
         .cols-4 .product-card figcaption { font-size: 1.3rem; padding: 1rem 1.2rem 1.1rem; }
 
+        /* Encadré normes européennes */
+        .quality {
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            background: var(--off-white);
+            border-left: 3px solid var(--gold);
+            padding: 1.4rem 1.8rem;
+        }
+        .quality svg { width: 34px; height: 34px; color: var(--gold); flex: none; }
+        .quality strong { color: var(--navy); font-size: 1rem; }
+        .quality p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin-top: 0.3rem; }
+
         .family { display: none; }
         .family.active { display: block; }
 
@@ -333,6 +348,8 @@
             .section-header { margin-bottom: 2rem; }
             .tabs { margin: 0 -5.5% 1.5rem; padding: 0 5.5%; }
             .tab { padding: 10px 16px; font-size: 0.72rem; }
+            .quality { padding: 1.2rem; gap: 0.9rem; margin-bottom: 2rem; }
+            .quality svg { width: 28px; height: 28px; }
             /* Carrousel : on fait glisser les photos avec le doigt */
             .products-grid {
                 display: flex;
@@ -413,6 +430,17 @@
 
     <!-- Produits alimentaires -->
     <div class="family" data-family="alimentaire">
+    <div class="quality">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <div>
+            <strong data-fr="Produits conformes aux normes européennes" data-en="Products compliant with European standards">Produits conformes aux normes européennes</strong>
+            <p data-fr="Nos produits alimentaires respectent la réglementation européenne, notamment les limites maximales de résidus de pesticides."
+               data-en="Our food products comply with European regulations, including maximum pesticide residue levels.">
+                Nos produits alimentaires respectent la réglementation européenne, notamment les limites maximales de résidus de pesticides.
+            </p>
+        </div>
+    </div>
+
     <div class="group">
     <h2 class="group-title" data-fr="Fruits & légumes frais" data-en="Fresh fruit & vegetables">Fruits & légumes frais</h2>
     <div class="products-grid">
@@ -485,6 +513,17 @@
 
     <!-- Matériaux BTP -->
     <div class="family" data-family="btp">
+    <div class="quality">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <div>
+            <strong data-fr="Matériaux conformes aux normes européennes" data-en="Materials compliant with European standards">Matériaux conformes aux normes européennes</strong>
+            <p data-fr="Nos matériaux de construction respectent les normes européennes en vigueur pour le bâtiment et les travaux publics."
+               data-en="Our construction materials comply with the European standards in force for building and public works.">
+                Nos matériaux de construction respectent les normes européennes en vigueur pour le bâtiment et les travaux publics.
+            </p>
+        </div>
+    </div>
+
     <div class="group">
     <h2 class="group-title" data-fr="Acier" data-en="Steel">Acier</h2>
     <div class="products-grid">
